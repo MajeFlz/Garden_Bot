@@ -1,0 +1,12 @@
+1) Настроить venv окружение // легче просто открыть его в IDE в terminal
+Создать окружение
+python -m venv venv
+Включить окружение
+linux: source venv/bin/activate
+win: venv\Scripts\activate.bat
+
+2) Загрузить необходимые зависимости библиотек
+pip install -r requirements.txt
+
+3) Запустить бота
+python main.py
