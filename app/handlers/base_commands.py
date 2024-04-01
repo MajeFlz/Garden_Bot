@@ -1,6 +1,7 @@
 from aiogram import F, Router
 from aiogram.types import Message
 from aiogram.filters import Command
+from app.keyboards.inline_admin import web_ui
 
 base_command = Router()
 
@@ -11,7 +12,7 @@ async def start_message(message: Message):
             'Я бот который будет выдавать тебе награды за волонтерство в прекрасном саду\n\n'
             'Если тебе потребуется помощь, просто введи команду /help')
 
-    await message.answer(text)
+    await message.answer(text, reply_markup=web_ui)
 
 
 @base_command.message(Command("help"))
