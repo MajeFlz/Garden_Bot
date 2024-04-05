@@ -1,4 +1,6 @@
-# NFTree (добавить пикчу до четверга)
+# NFTree
+
+![logo](https://cdn.discordapp.com/attachments/1023980844731342908/1225743114535309312/NFTree_github.png?ex=66223d3b&is=660fc83b&hm=f18744c5a8253226c62c1063d58dc0395ddd4967b313795693c8787bc0e94902&)
 
 ![Static Badge](https://img.shields.io/badge/Python-FFD43B?style=for-the-badge&logo=python&logoColor=blue)
 ![Static Badge](https://img.shields.io/badge/Sqlite-003B57?style=for-the-badge&logo=sqlite&logoColor=white)
