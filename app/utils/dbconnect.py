@@ -1,11 +1,16 @@
-import asyncpg
+import aiomysql
 
 
 class Request:
-    def __init__(self, connector: asyncpg.pool.Pool):
+    def __init__(self, connector: aiomysql.Connection):
         self.connector = connector
 
     async def add_user_data(self, user_id, user_name):
-        query = (f"INSERT INTO usersdata (user_id, user_name) VALUES ({user_id}, '{user_name}') "
-                 f"ON CONFLICT (user_id) DO UPDATE SET user_name = '{user_name}'")
-        await self.connector.execute(query)
+        query = (
+            f"INSERT INTO users (user_id, user_name) "
+            f"VALUES ({user_id}, '{user_name}') "
+            f"ON DUPLICATE KEY UPDATE user_name = '{user_name}'"
+        )
+        async with self.connector.cursor() as cursor:
+            await cursor.execute(query)
+

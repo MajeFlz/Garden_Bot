@@ -7,5 +7,5 @@ admin_menu = InlineKeyboardMarkup(inline_keyboard=[
 ])
 
 web_ui = InlineKeyboardMarkup(inline_keyboard=[
-    [InlineKeyboardButton(text='Запустить приложение', web_app=WebAppInfo(url = "https://lo-wang.github.io"))]
+    [InlineKeyboardButton(text='Запустить приложение', web_app=WebAppInfo(url = "https://127.0.0.1:3000"))]
 ])
