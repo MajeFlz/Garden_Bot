@@ -1,8 +1,22 @@
+"""
+Документация для функции set_commands.
+
+Эта функция устанавливает команды бота.
+
+Args:
+    bot (aiogram.Bot): Объект бота aiogram.Bot.
+"""
+
 from aiogram import Bot
 from aiogram.types import BotCommand, BotCommandScopeDefault
 
-
 async def set_commands(bot: Bot):
+    """
+    Устанавливает команды для бота.
+
+    Args:
+        bot (aiogram.Bot): Объект бота aiogram.Bot.
+    """
     commands = [
         BotCommand(
             command='start',

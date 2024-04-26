@@ -1,3 +1,11 @@
+"""
+Бот Telegram для обработки команд пользователей.
+
+Модуль содержит функции для запуска бота и установки соединения с базой данных.
+
+Автор: NFTree
+"""
+
 import asyncio
 import logging
 import aiomysql
@@ -10,18 +18,29 @@ from app.handlers.user_commands import user_commands
 from app.handlers.admin_commands import admin_commands
 from app.middlewares.dbmiddleware import DbSession
 
-
 async def start_bot(bot: Bot):
+    """
+    Устанавливает команды бота.
+
+    :param bot: Экземпляр aiogram.Bot для установки команд.
+    """
     await set_commands(bot)
 
-
 async def db_create_pool():
-    # создание пула соединений с MySQL базой данных
+    """
+    Создает пул соединений с базой данных MySQL.
+
+    :return: Пул соединений с базой данных.
+    """
     return await aiomysql.create_pool(**settings.database.__dict__, autocommit=True)
 
-
 async def start() -> None:
-    logging.basicConfig(level=logging.INFO)  # на проде отключить из-за нагрузки
+    """
+    Запускает бота Telegram и подключается к базе данных.
+
+    :return: None
+    """
+    logging.basicConfig(level=logging.INFO)  # На продакшне необходимо отключить из-за нагрузки
 
     dp = Dispatcher()
 
@@ -43,6 +62,6 @@ async def start() -> None:
     finally:
         await bot.session.close()
 
-
 if __name__ == '__main__':
     asyncio.run(start())
+

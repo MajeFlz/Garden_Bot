@@ -1,3 +1,6 @@
+/**
+ * Документация для JavaScript-файла web_app.js
+ */
 // let WebApp = window.Telegram.WebApp;
 
 // WebApp.expand();
@@ -10,6 +13,11 @@ document.addEventListener("DOMContentLoaded", function() {
     const tasksBtn = document.getElementById('tasksBtn');
     const payBtn = document.getElementById('payBtn');
     const aboutUsBtn = document.getElementById('aboutUsBtn');
+
+    /**
+    * Функция для отображения информации о саде.
+    * Очищает основной контент и добавляет информацию о саде.
+    */
 
     function showAboutGarden() {
         main.innerHTML = '';
@@ -26,6 +34,12 @@ document.addEventListener("DOMContentLoaded", function() {
   		main.appendChild(buildContainer);
     }
 
+
+    /**
+    * Функция для отображения заданий.
+    * Очищает основной контент и подготавливает контейнер для заданий.
+    */
+
     function showTasks() {
         main.innerHTML = '';
   
@@ -37,6 +51,11 @@ document.addEventListener("DOMContentLoaded", function() {
   		main.appendChild(buildContainer);
     }
 
+    /**
+    * Функция для отображения информации о платежах.
+    * Очищает основной контент и подготавливает контейнер для информации о платежах.
+    */
+
     function showPay() {
         main.innerHTML = '';
   
@@ -47,6 +66,11 @@ document.addEventListener("DOMContentLoaded", function() {
 
   		main.appendChild(buildContainer);
     }
+
+    /**
+    * Функция для отображения информации о компании.
+    * Очищает основной контент и добавляет информацию о компании NFTree.
+    */
 
     function showAboutUs() {
         main.innerHTML = '';
@@ -69,6 +93,11 @@ document.addEventListener("DOMContentLoaded", function() {
     // Функция для обновления счетчика и прогресса
     var counter = 0;
 
+    /**
+    * Функция для обновления счетчика и прогресса.
+    * Увеличивает счетчик на 1, обновляет значение счетчика и прогресс-бар.
+    */
+
     function updateCounter() {
         counter++;
         document.getElementById('count').textContent = counter;
@@ -76,6 +105,12 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 
     // Функция для сброса счетчика и прогресса
+
+    /**
+    * Функция для сброса счетчика и прогресса.
+    * Сбрасывает счетчик на 0, обновляет значение счетчика и прогресс-бар.
+    */
+
     function resetCounter() {
         counter = 0;
         document.getElementById('count').textContent = counter;
@@ -83,6 +118,12 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 
     // Функция для обновления прогресса
+
+    /**
+    * Функция для обновления прогресса.
+    * Вычисляет и обновляет значение прогресса и его отображение.
+    */
+
     function updateProgressBar() {
         var progress = (counter / 1000) * 100;
         document.getElementById('progress').style.width = progress + '%';

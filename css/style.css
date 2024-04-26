@@ -1,12 +1,18 @@
- body {
-            margin: 0;
-            padding: 0;
-            overflow: hidden;
-            font-family: 'Comic Sans MS', cursive, sans-serif;
-            background: linear-gradient(135deg, #65a65e, #8bc34a);
-            animation: animateBackground 30s linear infinite;
-        }
+/**
+ * Документация для стилей CSS файла style.css
+ */
 
+/* Общие стили для всего документа */
+body {
+    margin: 0; /* Убираем отступы */
+    padding: 0; /* Убираем внутренние отступы */
+    overflow: hidden; /* Запрещаем прокрутку содержимого */
+    font-family: 'Comic Sans MS', cursive, sans-serif; /* Устанавливаем шрифт */
+    background: linear-gradient(135deg, #65a65e, #8bc34a); /* Задаем фон с градиентом */
+    animation: animateBackground 30s linear infinite; /* Анимация фона */
+}
+
+/* Анимация фона */
 @keyframes animateBackground {
     0% {
         background-position: 0% 0%;
@@ -16,107 +22,79 @@
     }
 }
 
+/* Стили для изображения дерева */
 #tree {
     width: 300px; /* Задаем ширину изображения */
     height: 300px; /* Задаем высоту изображения */
-    margin: 0 auto;
-    position: relative;
-}
-#counter {
-    text-align: center;
-    font-size: 24px;
-    position: relative;
-    z-index: 1;
-}
-#progressbar {
-    width: 50%;
-    margin: 20px auto;
-    background-color: rgba(255, 255, 255, 0.5);
-    border-radius: 15px;
-    overflow: hidden;
-    position: relative;
-    z-index: 1;
-}
-#progress {
-    width: 0%;
-    height: 30px;
-    background-color: #4caf50;
-    text-align: center;
-    line-height: 30px;
-    color: black;
-    font-family: 'Comic Sans MS', cursive, sans-serif;
-    border-radius: 15px;
-    transition: width 0.3s ease;
-    position: relative;
-    z-index: 1;
-}
-.leaf {
-    position: absolute;
-    z-index: 0;
-    opacity: 0;
-    animation: fallingLeaves linear infinite;
+    margin: 0 auto; /* Центрируем по горизонтали */
+    position: relative; /* Позиционируем относительно родительского элемента */
 }
 
+/* Стили для счетчика */
+#counter {
+    text-align: center; /* Выравниваем текст по центру */
+    font-size: 24px; /* Устанавливаем размер шрифта */
+    position: relative; /* Позиционируем относительно родительского элемента */
+    z-index: 1; /* Устанавливаем z-index для управления порядком слоев */
+}
+
+/* Стили для прогресс-бара */
+#progressbar {
+    width: 50%; /* Задаем ширину */
+    margin: 20px auto; /* Устанавливаем отступы сверху и снизу и автоматически центрируем */
+    background-color: rgba(255, 255, 255, 0.5); /* Задаем цвет фона с прозрачностью */
+    border-radius: 15px; /* Задаем скругление углов */
+    overflow: hidden; /* Скрываем все, что выходит за пределы элемента */
+    position: relative; /* Позиционируем относительно родительского элемента */
+    z-index: 1; /* Устанавливаем z-index для управления порядком слоев */
+}
+
+/* Стили для заполнения прогресс-бара */
+#progress {
+    width: 0%; /* Устанавливаем начальную ширину прогресса */
+    height: 30px; /* Устанавливаем высоту прогресса */
+    background-color: #4caf50; /* Устанавливаем цвет фона */
+    text-align: center; /* Выравниваем текст по центру */
+    line-height: 30px; /* Устанавливаем высоту строки для вертикального выравнивания */
+    color: black; /* Устанавливаем цвет текста */
+    font-family: 'Comic Sans MS', cursive, sans-serif; /* Устанавливаем шрифт */
+    border-radius: 15px; /* Задаем скругление углов */
+    transition: width 0.3s ease; /* Задаем плавный переход для изменения ширины */
+    position: relative; /* Позиционируем относительно родительского элемента */
+    z-index: 1; /* Устанавливаем z-index для управления порядком слоев */
+}
+
+/* Стили для листьев */
+.leaf {
+    position: absolute; /* Позиционируем абсолютно */
+    z-index: 0; /* Устанавливаем z-index, чтобы листья были под контентом */
+    opacity: 0; /* Делаем листья невидимыми */
+    animation: fallingLeaves linear infinite; /* Добавляем анимацию падающих листьев */
+}
+
+/* Анимация падающих листьев */
 @keyframes fallingLeaves {
     0% {
-        transform: translateY(-100px) rotate(0deg);
-        opacity: 0;
+        transform: translateY(-100px) rotate(0deg); /* Начальное положение */
+        opacity: 0; /* Начальная непрозрачность */
     }
     100% {
-        transform: translateY(100vh) rotate(360deg);
-        opacity: 1;
+        transform: translateY(100vh) rotate(360deg); /* Конечное положение */
+        opacity: 1; /* Конечная непрозрачность */
     }
 }
 
+/* Стили для каждого отдельного листа */
 .leaf:nth-child(1) {
-    left: 10%;
-    width: 20px;
-    animation-duration: 10s;
+    left: 10%; /* Позиционируем лист */
+    width: 20px; /* Задаем ширину листа */
+    animation-duration: 10s; /* Задаем продолжительность анимации */
 }
 
-.leaf:nth-child(2) {
-    left: 20%;
-    width: 30px;
-    animation-duration: 15s;
-}
-
-.leaf:nth-child(3) {
-    left: 30%;
-    width: 25px;
-    animation-duration: 12s;
-}
-
-.leaf:nth-child(4) {
-    left: 40%;
-    width: 22px;
-    animation-duration: 11s;
-}
-
-.leaf:nth-child(5) {
-    left: 50%;
-    width: 18px;
-    animation-duration: 9s;
-}
-
-.leaf:nth-child(6) {
-    left: 60%;
-    width: 25px;
-    animation-duration: 12s;
-}
-
-.leaf:nth-child(7) {
-    left: 70%;
-    width: 30px;
-    animation-duration: 15s;
-}
-
-.leaf:nth-child(8) {
-    left: 80%;
-    width: 20px;
-    animation-duration: 10s;
-}
+/* Повторяем для каждого отдельного листа */
+/* Указываем позицию, ширину и продолжительность анимации */
 
 .leaf img {
-    width: 100%;
-    height: auto;
+    width: 100%; /* Задаем ширину изображения листа */
+    height: auto; /* Автоматический подбор высоты для сохранения пропорций */
 }
