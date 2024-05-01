@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Подробная информация о задаче</title>
+<style>
+    .task-name {
+        font-weight: bold;
+    }
+</style>
+</head>
+<body>
+
+<div id="task-details">
+    <!-- Здесь будет отображаться подробная информация о задаче -->
+</div>
+
+<button onclick="goBack()">Назад</button>
+
+<script>
+    // Функция для возврата на предыдущую страницу
+    function goBack() {
+        window.history.back();
+    }
+
+    // Получаем параметр task из URL
+    const urlParams = new URLSearchParams(window.location.search);
+    const task = urlParams.get('task');
+
+    // Отображаем подробную информацию о задаче
+    const taskDetailsContainer = document.getElementById("task-details");
+    const [taskName, ...taskDetails] = task.split(" - ");
+    const taskNameElement = document.createElement("div");
+    taskNameElement.classList.add("task-name");
+    taskNameElement.textContent = taskName.trim();
+    taskDetailsContainer.appendChild(taskNameElement);
+
+    // Отображаем описание задачи с переносом на новую строку после разделителя
+    const taskDescriptionElement = document.createElement("div");
+    taskDescriptionElement.innerHTML = taskDetails.map(detail => "- " + detail.trim()).join("<br>");
+    taskDetailsContainer.appendChild(taskDescriptionElement);
+
+</script>
+
+</body>
+</html>

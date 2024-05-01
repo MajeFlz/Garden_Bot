@@ -1,53 +1,51 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Сайт-Кликер</title>
-    <!-- Подключение необходимых скриптов -->
-    <script src="https://telegram.org/js/telegram-web-app.js"></script> <!-- Скрипт для работы с Telegram Web -->
-    <script src="js/web_app.js"></script> <!-- Ваш собственный JavaScript файл -->
-    <!-- Подключение стилей -->
-    <link rel="stylesheet" href="css/style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Список дел</title>
+<style>
+    .task-button {
+        margin-bottom: 5px;
+    }
+</style>
 </head>
 <body>
-    <div class="app">
-        <!-- Шапка приложения -->
-        <header>
-            <span class="notification-bell">УВ</span> <!-- Иконка уведомлений -->
-            <span class="balance">Баланс</span> <!-- Отображение баланса -->
-        </header>
-        <!-- Основное содержимое -->
-        <main>
-            <div id="tree">
-                <img id="tree-image" src="https://www.svgrepo.com/show/845/tree.svg" alt="Дерево" width="300" height="300">
-            </div>
-            <div id="counter">
-                Счетчик: <span id="count">0</span> <!-- Отображение счетчика -->
-            </div>
-            <div id="progressbar">
-                <div id="progress">0%</div> <!-- Прогресс-бар -->
-            </div>
 
-            <!-- Падающие листья (закомментировано, возможно из-за проблем с отображением в CSS) -->
-            <!--
-            <div class="leaf"><img src="https://www.svgrepo.com/show/70929/leaf.svg" alt="Лист"></div>
-            <div class="leaf"><img src="https://www.svgrepo.com/show/70929/leaf.svg" alt="Лист"></div>
-            <div class="leaf"><img src="https://www.svgrepo.com/show/70929/leaf.svg" alt="Лист"></div>
-            <div class="leaf"><img src="https://www.svgrepo.com/show/70929/leaf.svg" alt="Лист"></div>
-            <div class="leaf"><img src="https://www.svgrepo.com/show/70929/leaf.svg" alt="Лист"></div>
-            <div class="leaf"><img src="https://www.svgrepo.com/show/70929/leaf.svg" alt="Лист"></div>
-            <div class="leaf"><img src="https://www.svgrepo.com/show/70929/leaf.svg" alt="Лист"></div>
-            <div class="leaf"><img src="https://www.svgrepo.com/show/70929/leaf.svg" alt="Лист"></div>
-            -->
+<div id="task-list">
+    <!-- Задачи будут созданы динамически с помощью JavaScript -->
+</div>
 
-        </main>
-        <!-- Навигационное меню -->
-        <nav>
-            <button id="aboutGardenBtn">О саде</button>
-            <button id="tasksBtn">Задания</button>
-            <button id="payBtn">Кошелек</button>
-            <button id="aboutUsBtn">О нас</button>
-        </nav>
-    </div>
+<script>
+    // Функция для перехода на страницу с подробной информацией о задаче
+    function goToTaskDetails(taskName) {
+        window.location.href = "task-details.html?task=" + encodeURIComponent(taskName);
+    }
+
+    // Функция для создания списка задач
+    function generateTaskList(tasks) {
+        const taskListContainer = document.getElementById("task-list");
+        tasks.forEach(task => {
+            const [taskName, taskDescription] = task.split(" - ");
+            const button = document.createElement("button");
+            button.textContent = taskName.trim();
+            button.classList.add("task-button");
+            button.addEventListener("click", function() {
+                goToTaskDetails(task);
+            });
+            taskListContainer.appendChild(button);
+        });
+    }
+
+    // Задачи пользователя
+    const tasks = [
+    "plant tree - need to plant tree on 7th sector - reward 10 coin",
+    "plant tree - need to plant tree on 9th sector - reward 10 coin",
+];
+
+    // Генерируем список задач
+    generateTaskList(tasks);
+</script>
+
 </body>
 </html>
