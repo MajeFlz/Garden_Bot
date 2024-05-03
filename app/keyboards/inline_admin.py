@@ -7,5 +7,7 @@ admin_menu = InlineKeyboardMarkup(inline_keyboard=[
 ])
 
 web_ui = InlineKeyboardMarkup(inline_keyboard=[
-    [InlineKeyboardButton(text='Запустить приложение', web_app=WebAppInfo(url = "https://127.0.0.1:3000"))]
+    [InlineKeyboardButton(text='Запустить приложение', web_app=WebAppInfo(url = "https://majeflz.github.io/WEBAPP/"))],
+    [InlineKeyboardButton(text='Инструкция создания кошелька', callback_data="wallet_info")],
+    [InlineKeyboardButton(text='О проекте', callback_data="about")]
 ])
