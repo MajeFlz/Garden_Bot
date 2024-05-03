@@ -2,7 +2,7 @@ import re
 import logging
 # Путь к файлу html где будет список
 # Список задач для сада лежит в переменной tasks
-HTML_FILE_PATH = "3\index.html"  
+HTML_FILE_PATH = "index.html"  
 
 def update_tasks_in_html(tasks):
     with open(HTML_FILE_PATH, "r") as html_file:

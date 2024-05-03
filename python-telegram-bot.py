@@ -9,7 +9,7 @@ from aiogram.filters.command import Command
 # Включаем логирование, чтобы не пропустить сообщения
 logging.basicConfig(level=logging.INFO)
 # Объект бота
-bot = Bot(token="Токен бота")
+bot = Bot(token="")
 # Диспетчер
 dp = Dispatcher()
 
