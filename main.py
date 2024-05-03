@@ -9,6 +9,8 @@ from app.handlers.base_commands import base_command
 from app.handlers.user_commands import user_commands
 from app.handlers.admin_commands import admin_commands
 from app.middlewares.dbmiddleware import DbSession
+from app.handlers.callback import select_info
+
 
 
 async def start_bot(bot: Bot):
@@ -37,6 +39,7 @@ async def start() -> None:
 
     dp.update.middleware.register(DbSession(pool_connect))
     dp.startup.register(start_bot)
+    dp.callback_query.register(select_info)
 
     try:
         await dp.start_polling(bot)
