@@ -1,6 +1,6 @@
 # NFTree
 
-![logo](https://cdn.discordapp.com/attachments/1023980844731342908/1225743114535309312/NFTree_github.png?ex=66223d3b&is=660fc83b&hm=f18744c5a8253226c62c1063d58dc0395ddd4967b313795693c8787bc0e94902&)
+![logo](https://cdn.discordapp.com/attachments/1023980844731342908/1245788996244869200/NFTree_github.png?ex=665a06ea&is=6658b56a&hm=5f964d06f219a30a7ff305f406364b34e18424b9d8a92df2326b4bc727b20875&)
 
 ![Static Badge](https://img.shields.io/badge/Python-FFD43B?style=for-the-badge&logo=python&logoColor=blue)
 ![Static Badge](https://img.shields.io/badge/Sqlite-003B57?style=for-the-badge&logo=sqlite&logoColor=white)
